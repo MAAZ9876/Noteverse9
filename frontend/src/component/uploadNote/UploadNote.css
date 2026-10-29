@@ -1,0 +1,325 @@
+/* ========================================
+   NOTEVERSE — UPLOAD NOTE
+   Palette: Blue + Lavender + White
+======================================== */
+
+.uploadNote-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.uploadNote-container *,
+.uploadNote-container *::before,
+.uploadNote-container *::after {
+  box-sizing: border-box;
+}
+
+/* Upload section */
+.uploadNote-container-top {
+  display: flex;
+  align-items: center;
+  min-height: 76px;
+  height: auto;
+  padding: 12px 0;
+}
+
+/* Optional image area */
+.uploadNote-img {
+  border: none;
+}
+
+.uploadNote-img img {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+/* Compact upload button */
+.uploadNote-post {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: fit-content;
+  max-width: 100%;
+  min-height: 58px;
+  padding: 12px 20px;
+
+  color: #2457d6;
+  background: #eaf0ff;
+  border: 1px solid #d6e2ff;
+  border-radius: 14px;
+
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(36, 87, 214, 0.07);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.uploadNote-post:hover {
+  background: #dfe8ff;
+  border-color: #b9ccff;
+  box-shadow: 0 7px 18px rgba(36, 87, 214, 0.12);
+  transform: translateY(-2px);
+}
+
+.uploadNote-post:focus-visible {
+  outline: 3px solid #b9ccff;
+  outline-offset: 3px;
+}
+
+.uploadNote-post-text {
+  margin: 0;
+  color: #2457d6;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* Upload form/modal */
+.uploadNote-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  height: auto;
+  min-height: 360px;
+  max-height: 85vh;
+  overflow-y: auto;
+
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e0e7ff;
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(28, 48, 100, 0.14);
+}
+
+/* Form header */
+.upload-note-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 60px;
+  height: auto;
+  padding-bottom: 14px;
+
+  background: #f5f7ff;
+  border: none;
+  border-bottom: 1px solid #e2e8ff;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.upload-note-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+#close-icon {
+  cursor: pointer;
+  color: #64748b;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#close-icon:hover {
+  color: #2457d6;
+  background: #e0e7ff;
+}
+
+.upload-note-title {
+  margin: 0;
+  color: #172554;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Note title input */
+#upload-note-input {
+  width: 100%;
+  min-height: 52px;
+  height: auto;
+  margin-top: 8px;
+  padding: 12px 14px;
+
+  color: #172033;
+  background: #ffffff;
+  border: 1px solid #dce3f0;
+  border-radius: 10px;
+  outline: none;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#upload-note-input:focus {
+  border-color: #7597ff;
+  box-shadow: 0 0 0 3px rgba(75, 112, 245, 0.12);
+}
+
+/* Form layout */
+.uploadNote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* File selection */
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 60px;
+  height: auto;
+  margin-top: 4px;
+  padding: 14px 16px;
+
+  color: #2457d6;
+  background: #f0f3ff;
+  border: 1px dashed #aabfff;
+  border-radius: 12px;
+  cursor: pointer;
+
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-file-upload:hover {
+  background: #e6ecff;
+  border-color: #7597ff;
+}
+
+.custom-file-upload p {
+  margin: 0;
+  color: #334b83;
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.img-icon {
+  color: #2457d6;
+}
+
+/* Native file input */
+#thumbnail-file-upload {
+  max-width: 100%;
+  color: #475569;
+  font-size: 13px;
+}
+
+#thumbnail-file-upload::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+  padding: 0;
+}
+
+/* Submit */
+.uploadNote-form-submit-button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 8px;
+  padding: 12px 18px;
+
+  color: #ffffff;
+  background: #315fe8;
+  border: none;
+  border-radius: 11px;
+
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(49, 95, 232, 0.16);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.uploadNote-form-submit-button:hover {
+  background: #244dcc;
+}
+
+.uploadNote-form-submit-button:active {
+  transform: scale(0.99);
+}
+
+/* Tablet and mobile */
+@media only screen and (max-width: 768px) {
+  .uploadNote-container-top {
+    min-height: 64px;
+    padding: 8px 0;
+  }
+
+  .uploadNote-post {
+    min-height: 52px;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 12px;
+  }
+
+  .uploadNote-post-text {
+    font-size: 14px;
+  }
+
+  .uploadNote-form-container {
+    min-height: 300px;
+    max-height: 88vh;
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .upload-note-title {
+    font-size: 19px;
+  }
+
+  .upload-note-top {
+    min-height: 52px;
+    padding-bottom: 10px;
+  }
+
+  #upload-note-input {
+    min-height: 48px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .custom-file-upload {
+    min-height: 54px;
+    padding: 11px;
+  }
+
+  .custom-file-upload p {
+    font-size: 13px;
+  }
+
+  .uploadNote-form-submit-button {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .uploadNote-post,
+  .custom-file-upload,
+  .uploadNote-form-submit-button {
+    transition: none;
+  }
+}

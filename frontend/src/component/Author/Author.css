@@ -1,0 +1,247 @@
+/* ========================================
+   NOTEVERSE — FEATURED AUTHORS
+======================================== */
+
+.author-container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  padding: 16px 6px 20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.author-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Author card */
+.author-card {
+  box-sizing: border-box;
+  flex: 0 0 175px;
+  min-width: 175px;
+  min-height: 195px;
+  padding: 18px 12px 14px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.author-card:hover {
+  transform: translateY(-4px);
+  border-color: #c7d7fe;
+  box-shadow: 0 10px 24px rgba(30, 64, 175, 0.12);
+}
+
+/* Section heading */
+.featured-author {
+  margin: 0 0 8px;
+  color: #172554;
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+/* Author profile image */
+.author-image {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e0eaff;
+  box-shadow: 0 0 0 3px #f5f8ff;
+}
+
+/* Author name */
+.author-name {
+  max-width: 100%;
+  margin: 3px 0 0;
+  color: #172033;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Institution */
+.author-institution {
+  max-width: 100%;
+  margin-top: 0;
+  color: #778198;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* Notes and followers */
+.author-notes-followers-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.author-notes-followers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: auto;
+  min-width: 48px;
+}
+
+.author-notes-followers-count {
+  color: #4263eb;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.author-notes-followers-text {
+  color: #8b95a7;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Divider image, if used by your component */
+.seperation-image {
+  width: 16px;
+  max-height: 20px;
+  object-fit: contain;
+  opacity: 0.55;
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media only screen and (max-width: 900px) {
+  .author-container {
+    gap: 13px;
+    padding: 12px 4px 16px;
+  }
+
+  .author-card {
+    flex-basis: 160px;
+    min-width: 160px;
+    min-height: 180px;
+    padding: 15px 10px 12px;
+    border-radius: 16px;
+  }
+
+  .author-image {
+    width: 56px;
+    height: 56px;
+  }
+
+  .featured-author {
+    font-size: 23px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media only screen and (max-width: 600px) {
+  .author-container {
+    width: 100%;
+    gap: 11px;
+    padding: 10px 3px 16px;
+    margin-top: 0;
+  }
+
+  .author-card {
+    flex-basis: 145px;
+    min-width: 145px;
+    min-height: 165px;
+    padding: 13px 9px 11px;
+    gap: 7px;
+    border-radius: 15px;
+  }
+
+  .author-image {
+    width: 48px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .author-name {
+    font-size: 13px;
+  }
+
+  .author-institution {
+    font-size: 11px;
+  }
+
+  .featured-author {
+    font-size: 21px;
+    letter-spacing: -0.4px;
+  }
+
+  .author-notes-followers-container {
+    gap: 8px;
+  }
+
+  .author-notes-followers {
+    min-width: 42px;
+  }
+
+  .author-notes-followers-count {
+    font-size: 14px;
+  }
+
+  .author-notes-followers-text {
+    font-size: 10px;
+  }
+
+  .seperation-image {
+    width: 12px;
+  }
+}
+
+/* Small phones */
+@media only screen and (max-width: 380px) {
+  .author-card {
+    flex-basis: 135px;
+    min-width: 135px;
+    min-height: 155px;
+    padding: 11px 8px;
+  }
+
+  .author-image {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .author-container {
+    scroll-behavior: auto;
+  }
+
+  .author-card {
+    transition: none;
+  }
+}

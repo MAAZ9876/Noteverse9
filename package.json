@@ -1,0 +1,14 @@
+{
+  "name": "noteverse",
+  "private": true,
+  "description": "NoteVerse - share and discover study notes",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install && npm install",
+    "dev": "concurrently -n api,web -c blue,green \"npm --prefix backend run dev\" \"npm --prefix frontend start\"",
+    "start:api": "npm --prefix backend start",
+    "start:web": "npm --prefix frontend start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

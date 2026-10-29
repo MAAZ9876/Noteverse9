@@ -1,0 +1,513 @@
+
+/* =========================================
+   NOTEVERSE — MODERN DOCUMENT CARDS
+========================================= */
+
+.post-container,
+.post-container * {
+  box-sizing: border-box;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  margin: 0 0 26px;
+  overflow: hidden;
+  position: relative;
+
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.045);
+
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.post-container:hover {
+  border-color: #d7e4f7;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.075);
+}
+
+/* =========================================
+   AUTHOR HEADER
+========================================= */
+
+.post-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+  min-height: 82px;
+  height: auto;
+  padding: 16px 18px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #f0f3f8;
+  position: relative;
+}
+
+.post-topbar > a:first-child {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.post-topbar-img {
+  display: block;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e5edff;
+  background: #f1f5f9;
+}
+
+.post-topbar-desc {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  min-width: 0;
+  margin-left: 0;
+}
+
+.post-topbar-name {
+  margin: 0;
+  overflow: hidden;
+
+  color: #172554;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-topbar-desc > a,
+.post-topbar-desc > a:hover {
+  text-decoration: none;
+}
+
+.post-topbar-follow-ago-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 10px;
+}
+
+.post-topbar-follow-ago-container p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Edit and delete controls */
+
+.post-topbar-edit-delete-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+
+  width: auto;
+  height: auto;
+  margin: 0;
+  position: static;
+  flex-shrink: 0;
+}
+
+.post-topbar-edit-icon,
+.delete-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+
+  color: #64748b;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.post-topbar-edit-icon:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.delete-icon:hover {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+/* =========================================
+   DOCUMENT PREVIEW AND DESCRIPTION
+========================================= */
+
+.main-post {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+
+  width: 100%;
+  height: auto !important;
+  min-height: 235px;
+
+  background: #ffffff;
+}
+
+.main-post-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 235px;
+  max-height: 300px;
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #f1f5f9;
+}
+
+.main-post-img-container > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 235px;
+  max-height: 300px;
+
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-post-img-container:hover > img {
+  transform: scale(1.025);
+}
+
+/* View PDF overlay */
+
+.View-pdf-1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: auto;
+  min-width: 112px;
+  height: auto;
+  min-height: 42px;
+  padding: 10px 14px;
+
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.2);
+
+  transition: background 0.2s ease;
+}
+
+.View-pdf-1:hover {
+  background: #1d4ed8;
+  cursor: pointer;
+}
+
+.View-pdf-1 p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.View-pdf-1 img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Document details */
+
+.main-post-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 24px 22px;
+  background: #ffffff;
+}
+
+.main-post-notename {
+  margin: 0;
+  color: #172554;
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.main-post-description {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.main-post-desc {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+/* =========================================
+   LIKES, COMMENTS AND VIEWS
+========================================= */
+
+.post-reaction-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  width: 100%;
+  margin: 0;
+  padding: 14px 18px;
+
+  background: #ffffff;
+  border-top: 1px solid #f0f3f8;
+}
+
+.post-reaction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  width: auto;
+  min-width: 76px;
+  height: 38px;
+  padding: 0 13px;
+
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #edf1f7;
+  border-radius: 11px;
+
+  font-size: 13px;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.post-reaction:hover {
+  color: #2563eb;
+  background: #eff6ff;
+  border-color: #dbeafe;
+}
+
+.post-reaction .MuiSvgIcon-root {
+  font-size: 19px;
+}
+
+.post-reaction p {
+  margin: 0;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.link-in-comment {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media only screen and (max-width: 900px) {
+  .post-container {
+    margin-bottom: 22px;
+    border-radius: 16px;
+  }
+
+  .post-topbar {
+    min-height: 75px;
+    padding: 13px 15px;
+  }
+
+  .main-post {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .main-post-about {
+    padding: 19px 16px;
+    gap: 8px;
+  }
+
+  .main-post-notename {
+    font-size: 17px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media only screen and (max-width: 560px) {
+  .post-container {
+    margin-bottom: 18px;
+    border-radius: 14px;
+  }
+
+  .post-topbar {
+    min-height: 72px;
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .post-topbar-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .post-topbar-name {
+    font-size: 13px;
+  }
+
+  .post-topbar-follow-ago-container p {
+    font-size: 10px;
+  }
+
+  .post-topbar-edit-delete-container {
+    gap: 2px;
+  }
+
+  .post-topbar-edit-icon,
+  .delete-icon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  .main-post {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto !important;
+    min-height: 0;
+  }
+
+  .main-post-img-container {
+    min-height: 0;
+    height: 190px;
+    max-height: 220px;
+  }
+
+  .main-post-img-container > img {
+    width: 100%;
+    height: 190px;
+    min-height: 0;
+    max-height: 220px;
+  }
+
+  .main-post-about {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .main-post-notename {
+    font-size: 17px;
+  }
+
+  .main-post-description {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  .main-post-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
+  .View-pdf-1 {
+    min-width: 106px;
+    min-height: 40px;
+    padding: 9px 12px;
+  }
+
+  .post-reaction-container {
+    gap: 7px;
+    padding: 12px;
+  }
+
+  .post-reaction {
+    min-width: 65px;
+    height: 35px;
+    padding: 0 10px;
+    gap: 5px;
+  }
+
+  .post-reaction .MuiSvgIcon-root {
+    font-size: 17px;
+  }
+
+  .post-reaction p {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-container,
+  .post-container *,
+  .post-container *::before,
+  .post-container *::after {
+    transition: none !important;
+  }
+}

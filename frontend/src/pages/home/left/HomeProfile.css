@@ -1,0 +1,210 @@
+
+/* =========================================
+   NOTEVERSE — MODERN PROFILE SIDEBAR
+========================================= */
+
+.leftmost-topbar,
+.leftmost-desc {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Profile card header */
+.leftmost-topbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  height: auto;
+  padding: 24px 16px;
+
+  background: linear-gradient(145deg, #1d4ed8, #3b82f6);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.13);
+}
+
+/* Profile picture and username link */
+.leftmost-topbar .topbar-img-username {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.leftmost-topbar .topbar-menu-Img {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eff6ff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.leftmost-topbar .topbar-img-username:hover .topbar-menu-Img {
+  transform: scale(1.04);
+}
+
+.leftmost-topbar .menu-username {
+  max-width: 100%;
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Navigation card */
+.leftmost-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+
+  margin-top: 14px;
+  padding: 12px;
+
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.035);
+}
+
+/* Navigation links */
+.leftmost-desc .profile-link-icons {
+  display: block;
+  width: 100%;
+  color: #475569;
+  text-decoration: none;
+  border-radius: 11px;
+  outline: none;
+}
+
+.leftmost-desc .menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 12px;
+
+  border-radius: 11px;
+  color: #64748b;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.leftmost-desc .menuItem > .MuiSvgIcon-root {
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 21px;
+  transition: color 0.2s ease;
+}
+
+.leftmost-desc .leftmost-links {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+/* Hover effect for navigation */
+.leftmost-desc .profile-link-icons:hover .menuItem,
+.leftmost-desc #topbar-logout:hover {
+  background: #eff6ff;
+}
+
+.leftmost-desc .profile-link-icons:hover .MuiSvgIcon-root,
+.leftmost-desc .profile-link-icons:hover .leftmost-links {
+  color: #2563eb;
+}
+
+/* Logout */
+.leftmost-desc #topbar-logout {
+  margin-top: 7px;
+  padding-top: 12px;
+  border-top: 1px solid #edf1f7;
+  border-radius: 0 0 10px 10px;
+}
+
+.leftmost-desc #topbar-logout:hover {
+  background: #fef2f2;
+}
+
+.leftmost-desc #topbar-logout:hover .MuiSvgIcon-root,
+.leftmost-desc #topbar-logout:hover .leftmost-links {
+  color: #dc2626;
+}
+
+/* Keyboard accessibility */
+.leftmost-desc .profile-link-icons:focus-visible,
+.leftmost-desc #topbar-logout:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Smaller desktop screens */
+@media only screen and (max-width: 1100px) {
+  .leftmost-topbar {
+    min-height: 170px;
+    padding: 20px 12px;
+  }
+
+  .leftmost-topbar .topbar-menu-Img {
+    width: 66px;
+    height: 66px;
+  }
+
+  .leftmost-desc {
+    padding: 9px;
+  }
+
+  .leftmost-desc .menuItem {
+    gap: 9px;
+    padding: 9px;
+  }
+
+  .leftmost-desc .leftmost-links {
+    font-size: 12px;
+  }
+}
+
+/* Mobile fallback — Home.css hides the sidebar on mobile */
+@media only screen and (max-width: 768px) {
+  .leftmost-topbar {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 16px;
+  }
+
+  .leftmost-desc {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leftmost-topbar *,
+  .leftmost-desc * {
+    transition: none !important;
+  }
+}
