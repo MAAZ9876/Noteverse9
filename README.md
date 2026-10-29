@@ -1,59 +1,87 @@
-# NoteVerse
+NoteVerse 📝
 
-Share, search and discuss study notes: upload PDF/DOC/PPT notes, like and comment, follow people and chat in real time.
+NoteVerse is a social networking web application designed to help users connect, share content, and communicate with each other. It provides a simple platform for social interaction through posts, user profiles, and messaging.
 
-**Stack:** React 18 (Redux Toolkit, MUI v4, styled-components) · Express 4 + Mongoose · MongoDB · socket.io (runs inside the API server) · JWT login.
+📌 About the Project
 
-## Run it
+NoteVerse brings essential social networking features together in one web application. Users can create accounts, explore other users, share posts, and communicate through the messaging interface.
 
-You need **Node 18+** and a **MongoDB** (pick one):
+✨ Features
 
-* Docker: `docker compose up -d`   (uses `docker-compose.yml`)
-* or a local MongoDB on `127.0.0.1:27017`
-* or MongoDB Atlas: put your connection string in `backend/.env` as `MONGO_URL`
+- User Authentication: Register and log in to your account.
+- Create Posts: Share content with other users.
+- Social Interaction: Like posts and engage with shared content.
+- Real-Time Messaging: Chat with other users.
+- User Profiles: View and manage profile information.
+- Search Users: Find other users on the platform.
+- Responsive Interface: Access the application through a web browser.
 
-Then, from this folder:
+🛠️ Technologies Used
 
-```bash
-npm run install:all     # installs backend, frontend and the dev runner (once)
-npm run dev             # starts API (http://localhost:8000) + website (http://localhost:3000)
-```
+Technology| Purpose
+React.js| Frontend user interface
+Node.js| Backend runtime
+Express.js| Backend API
+MongoDB| Database
+REST API| Frontend-backend communication
 
-Prefer two terminals? `cd backend && npm run dev` and `cd frontend && npm start`.
+📂 Project Structure
 
-Open http://localhost:3000, create an account and upload a note.
+NoteVerse/
+├── frontend/       # React frontend
+├── backend/        # Backend application
+├── package.json
+├── package-lock.json
+└── README.md
 
-## Configuration
+The structure above is illustrative; adjust it if your repository differs.
 
-| File | Setting | Meaning |
-|---|---|---|
-| `backend/.env` | `MONGO_URL` | database connection string |
-| `backend/.env` | `JWT_SECRET` | secret that signs login tokens (a random one is already set) |
-| `backend/.env` | `CLIENT_ORIGIN` | website address(es) allowed to call the API |
-| `frontend/.env` | `REACT_APP_API_URL` | where the API runs (default `http://localhost:8000`) |
+⚙️ Installation and Setup
 
-The separate `socket/` server was merged into the API, so there is only one backend process now.
+Prerequisites
 
-## What was fixed (summary)
+- Node.js and npm
+- MongoDB connection
+- Git
 
-**Would not start / did not work**
-* Backend imported `bcryptjs` but `package.json` listed `bcrypt` -> crashed on a clean install.
-* Chat connected to the API port instead of a socket server -> chat now runs on the API's own socket.io, with login-token auth.
-* Wrong-password / unknown-email login sent two responses and could crash the server.
-* Home feed returned the *oldest* notes first, so new uploads were invisible; now newest first.
-* Editing a note without re-typing the file link wiped the file link; the edit form is now pre-filled and blank fields never overwrite data.
-* Fixed broken URLs: Banner (`/users` without `/api`), default avatars in comments, chat "online" click, conversation lookup route typo, `/getauthors` route order.
-* Fixed crashes for logged-out visitors on profile/footer pages, a double-counted "view" click, popup-blocked PDF opening, and a stuck login button caused by persisted `isFetching`.
+1. Clone the Repository
 
-**Security**
-* Real authentication (JWT). The server now takes the user from the token; nothing is trusted from the request body.
-* Users can only edit/delete their own account, notes and conversations (previously anyone could, including setting `isAdmin`).
-* Password hashes are never returned by the API (and no longer stored in the browser); emails are not exposed on public user endpoints.
-* Uploads need login, are limited to 25 MB and to pdf/doc/docx/ppt/pptx/txt/png/jpg/jpeg/gif/webp; links saved on notes/profiles must point to our uploads or http(s).
-* Search input is regex-escaped (no ReDoS / injection); schema validators actually enforce lengths; CORS is limited to your frontend.
-* The MongoDB Atlas credentials that were inside `backend/.env` were removed. **That password was exposed - rotate it in Atlas.**
+git clone https://github.com/MAAZ9876/Noteverse9.git
+cd Noteverse9
 
-**Cleanup**
-* Uploaded files are stored as relative paths (`/uploads/...`) instead of `http://localhost:8000/...`, so the app can be moved to another host.
-* One API address setting instead of ~20 hardcoded `localhost` URLs.
-* Removed the unused `Banner` component (it imported packages that are not installed).
+2. Install Dependencies
+
+Install dependencies in the root, frontend, and backend directories wherever a "package.json" exists.
+
+npm install
+
+3. Configure Environment Variables
+
+Create the required ".env" files for your application and configure the necessary values, such as the database connection string, authentication settings, and API credentials.
+
+Important: Never upload ".env" files or secret API keys to GitHub.
+
+4. Run the Application
+
+Start the frontend and backend using the scripts defined in their respective "package.json" files. Refer to those files for the correct development commands.
+
+🔮 Future Enhancements
+
+- Notifications for social interactions
+- Improved profile customization
+- Enhanced search and discovery
+- Additional security and performance improvements
+
+👨‍💻 Author
+
+MAAZ9876
+
+GitHub: "@MAAZ9876" (https://github.com/MAAZ9876)
+
+📄 License
+
+This project was developed for academic purposes. Add a specific open-source license if you intend to distribute it under one.
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
